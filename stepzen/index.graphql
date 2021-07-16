@@ -1,0 +1,9 @@
+schema
+  @sdl(
+    files: [
+      "calendar-mutation.graphql",
+      "calendar-query.graphql"
+    ]
+  ) {
+  query: Query
+}

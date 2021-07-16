@@ -1,0 +1,18 @@
+type Meeting {
+    id: ID!
+    status: String
+    htmlLink: String
+    created: String
+    description: String
+    location: String
+}
+
+type Query {
+    meeting (id: ID!): Meeting
+        @rest (
+            setters: []
+            resultroot: ""
+            endpoint: 
+            "https://www.googleapis.com/calendar/v3/calendars/$calendar/events/$id"
+            configuration: "google_calendar")
+}

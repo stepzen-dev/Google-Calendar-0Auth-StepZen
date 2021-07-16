@@ -1,0 +1,24 @@
+type createMeeting {
+    summary: String!
+    location: String!
+    description: String!
+}
+
+type Mutation {
+    createMeeting (
+        summary: String!,
+        location: String!,
+        description: String!,
+        start: String!,
+        end: String!,
+        timezone: String!,
+        email: String!,
+    ):
+    createMeeting
+        @rest(
+            method: POST
+            postbody: "{\"summary\": \"{{.Get \"summary\" }}\",\"location\": \"{{.Get \"location\" }}\",\"description\": \"{{.Get \"description\" }}\",\"start\": {\"dateTime\": \"{{.Get \"start\" }}\",\"timeZone\": \"{{.Get \"timezone\" }}\"},\"end\": {\"dateTime\": \"{{.Get \"end\" }}\",\"timeZone\": \"{{.Get \"timezone\" }}\"},\"attendees\": [{\"email\": \"{{.Get \"email\" }}\"}]}"
+            endpoint: "https://us-central1-black-transport-320014.cloudfunctions.net/gCalMutation/?url=https://www.googleapis.com/calendar/v3/calendars/$calendar/events&apikey=$apikey"
+            configuration: "google_calendar"
+        )
+}

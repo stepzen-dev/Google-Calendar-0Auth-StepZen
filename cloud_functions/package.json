@@ -1,0 +1,27 @@
+{
+    "name": "restbackend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "deploy": "gcloud functions deploy graphql --entry-point restbackend --trigger-http --allow-unauthenticated --runtime nodejs12",
+        "locally": "ngrok http -subdomain=restbackend 8000",
+        "start": "functions-framework --target=restbackend",
+        "watch": "npm-watch start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "watch": {
+        "start": "*.js"
+    },
+    "dependencies": {
+        "@google-cloud/functions-framework": "^1.7.1",
+        "@google-cloud/storage": "^5.7.4",
+        "node-fetch": "^2.6.1"
+    },
+    "devDependencies": {
+        "localtunnel": "^2.0.0",
+        "npm-watch": "^0.7.0"
+    }
+}

@@ -1,0 +1,6 @@
+configurationset:
+  - configuration:
+      name: google_calendar
+      apikey: {{apikey}}
+      calendar: sam%40stepzen.com
+      header.Authorization: Bearer {{token}}
